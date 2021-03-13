@@ -1,6 +1,4 @@
 body,html {
-  /* overflow-y: hidden;
-  overflow-x: hidden; */
   background-color: #5095E4;
 }
 *{
@@ -21,13 +19,10 @@ body,html {
   --rows:20;
   --cols:20;
 } */
-.mainBox{
-}
 .grid-container{
   border-radius: 41px;
 background: linear-gradient(145deg, #e6e6e6, #ffffff);
-box-shadow:  5px 5px 10px #d4d4d4,
-             -5px -5px 10px #ffffff;
+
 place-content: center;
   flex:0.8;
   display: grid;
@@ -57,8 +52,10 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   justify-content: center;
   align-items: center;
   display: inline-block;
-  box-shadow: inset 5px 5px 10px #00000027, inset -5px -5px 10px #ffffff;
+  box-shadow: inset -1px 0px 10px #d4d4d4, inset 0px -1px 10px #ffffff;
   border: 1px;
+  /* box-shadow:  5px 5px 10px #d4d4d4,
+             -5px -5px 10px #ffffff; */
 }
 /* .box:hover{
   box-shadow: 5px 5px 10px #00000027, -5px -5px 10px #ffffff;
