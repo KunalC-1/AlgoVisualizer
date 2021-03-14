@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div id = "Algorithm">
+        <label class="label">Algorithm : </label>
+        <div class="dropdown">
+            <div class="select">
+                <span>Select Path Finding Algorithm</span>
+            </div>
+            <ul class="dropdown-menu">
+                <li id = "DFS">Depth First Search</li>
+                <li id = "BFS">Breadth First Search</li>
+                <li id = "Dikjstra">Dikjstra Algorithm</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id = "Speed-Bar">
+        <label class="label">Visualization Speed : </label>
+        <input type="range" min="1" max="20" value="10" id="speed">
+    </div>
+    <div id = "Buttons">
+        <button id="start" class="btn"><span>START</span></button>
+        <button id="reload" class="btn"><span>RELOAD</span></button>
+        <button id="reset" class="btn"><span>RESET</span></button>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+
+</html>
