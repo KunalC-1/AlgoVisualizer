@@ -96,18 +96,18 @@ const gridContainer = document.querySelector(".grid-container");
   gridContainer.addEventListener("dragstart", function( event ) {
       // store a ref. on the dragged elem
       dragged = event.target;
-      if(dragged.getAttribute("id")==="startBox"){
+      if(dragged.getAttribute("class")==="bi bi-nut-fill Icon"){
         let startBox=document.getElementById("startBox");
         if(startBox.hasAttribute("id"))
           startBox.removeAttribute("id");
       }
       
-      else if(dragged.getAttribute("id")==="endBox"){
+      else if(dragged.getAttribute("class")==="bi bi-geo-alt-fill Icon"){
         let endBox=document.getElementById("endBox");
         if(endBox.hasAttribute("id"))
           endBox.removeAttribute("id");
       }
-      //console.log(dragged);
+      // console.log(dragged);
       // make it half transparent
       event.target.style.opacity = .5;
   }, false);
