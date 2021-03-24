@@ -61,7 +61,7 @@ flex-wrap: wrap;
 .btn:after {
   content: "";
   position: absolute;
-  left: 100%;
+  left: 95%;
   height: 240%;
   width: 205%;
   background: #eec476;
@@ -72,8 +72,8 @@ flex-wrap: wrap;
 }
 
 .btn:hover:after {
-  -webkit-transform: translateX(-40%) translateY(-25%) rotate(45deg);
-  transform: translateX(-40%) translateY(-25%) rotate(45deg);
+  -webkit-transform: translateX(-30%) translateY(-25%) rotate(45deg);
+  transform: translateX(-30%) translateY(-25%) rotate(45deg);
 }
 
 .algoDropdown{
