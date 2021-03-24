@@ -154,3 +154,5 @@ const gridContainer = document.querySelector(".grid-container");
       }
       mainGrid.ismousePressed=false;
   }, false);
+export const rows = mainGrid.rows;
+export const cols = mainGrid.cols;
