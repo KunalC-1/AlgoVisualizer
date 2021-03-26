@@ -152,7 +152,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   border: 1px;
 }
 .isWall{
-  background-color: #254974;
+  background-color: #254974  !important;
   box-shadow: none;
 }
 /* .box:hover{
@@ -161,4 +161,11 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .Icon{
   width: 25px;
   font-size: 25px;
+  cursor: grab;
+}
+.pathPrimary{
+  background:rgb(219, 102, 235);
+}
+.pathSecondary{
+  background:rgb(94, 196, 94);
 }
