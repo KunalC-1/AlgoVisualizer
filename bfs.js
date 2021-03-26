@@ -1,6 +1,10 @@
 import { rows, cols } from "./index.js";
-
-function breadthFirstSearch() {
+const waitForSeconds = (secs) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, secs * 1000);
+  });
+};
+export const breadthFirstSearch = async () => {
   const queue = [];
   const parentForCell = {};
   const startBox = document.getElementById("startBox");
@@ -9,9 +13,19 @@ function breadthFirstSearch() {
   const startCol = startBox.getAttribute("col");
   const endRow = endBox.getAttribute("row");
   const endCol = endBox.getAttribute("col");
+  const targetKey = `${endRow}|${endCol}`;
   queue.push({
     row: parseInt(startRow),
     col: parseInt(startCol),
+  });
+  const startKey = `${startRow}|${startCol}`;
+  // start key doesnt have an parent
+  parentForCell[startKey] = { key: undefined };
+  const speedSlider = document.querySelector("#speed");
+  let timeMultiplier = speedSlider.value;
+  speedSlider.addEventListener("change", () => {
+    // console.log(speedSlider.value);
+    timeMultiplier = speedSlider.value;
   });
   while (queue.length > 0) {
     //   dequeue from queue
@@ -23,15 +37,24 @@ function breadthFirstSearch() {
       { row: row + 1, col },
       { row, col: col + 1 },
     ];
+    if (currentKey === targetKey) {
+      break;
+    }
     for (let i = 0; i < neighbours.length; i++) {
       let nRow = neighbours[i].row;
       let nCol = neighbours[i].col;
       let key = `${nRow}|${nCol}`;
       // check if out of bound
-      if (nRow < 0 || nRow > rows) {
+      if (nRow < 0 || nRow >= rows) {
         continue;
       }
-      if (nCol < 0 || nCol > cols) {
+      if (nCol < 0 || nCol >= cols) {
+        continue;
+      }
+
+      let nBox = document.querySelector(`[row="${nRow}"][col="${nCol}"]`);
+      // console.log(`[row="${nRow}"][col="${nCol}"]`);
+      if (nBox && nBox.getAttribute("wall") === "1") {
         continue;
       }
       if (key in parentForCell) {
@@ -44,22 +67,29 @@ function breadthFirstSearch() {
         key: currentKey,
       };
       queue.push(neighbours[i]);
+      if (key === targetKey) {
+        break;
+      }
+      await waitForSeconds(0.2 / timeMultiplier);
+
+      if (nBox) nBox.classList += " pathSecondary";
     }
   }
   // console.dir(parentForCell);
   const path = [];
-  const targetKey = `${endRow}|${endCol}`;
-  const startKey = `${startRow}|${startCol}`;
-  let currentKey = targetKey;
-  while (currentKey !== startKey) {
-    let [cRow, cCol] = currentKey.split("|");
+  let current = targetKey;
+  while (current !== startKey) {
+    let [cRow, cCol] = current.split("|");
     let currBox = document.querySelector(`[row="${cRow}"][col="${cCol}"]`);
-    // console.log(parentForCell[currentKey].key);
+    // console.log(cRow, cCol, currBox);
     path.push(currBox);
-    currentKey = parentForCell[currentKey].key;
+    current = parentForCell[current].key;
   }
-  path.forEach((box) => {
-    // box.style.background = "purple";
+  let [sRow, sCol] = current.split("|");
+  let sBox = document.querySelector(`[row="${sRow}"][col="${sCol}"]`);
+  path.push(sBox);
+  path.forEach((box, i) => {
+    box.classList.replace("pathSecondary", "pathPrimary");
+    if (i > 0 && i < path.length - 1) box.innerHTML = path.length - i - 1;
   });
-}
-breadthFirstSearch();
+};
