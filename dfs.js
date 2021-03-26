@@ -1,9 +1,5 @@
 import { rows, cols } from "./index.js";
 let alldiv = gridContainer.getElementsByTagName("div");
-let style = window.getComputedStyle(gridContainer);
-
-let rows = parseInt(style.getPropertyValue("--rows"));
-let cols = parseInt(style.getPropertyValue("--cols"));
 
 function createGridMatrix() {
   let i,
