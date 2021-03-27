@@ -1,5 +1,6 @@
 // gridContainer.add
 import { breadthFirstSearch } from "./bfs.js";
+import { depthFirstSearch } from "./dfs.js";
 class Grid {
   createNode(row, col) {
     let node = document.createElement("div");
@@ -129,6 +130,18 @@ boxes.forEach((box) => {
 const algoDropdown = document.querySelector(".algoDropdown");
 const startButton = document.querySelector("#start");
 const reloadButton = document.querySelector("#reload");
+const resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", () => {
+  const boxes1 = document.getElementsByClassName("pathSecondary");
+  const boxes2 = document.getElementsByClassName("pathPrimary");
+  while(boxes1[0]){
+    boxes1[0].classList.remove("pathSecondary");
+  }
+  while(boxes2[0]){
+    boxes2[0].innerHTML = "";
+    boxes2[0].classList.remove("pathPrimary");
+  }
+});
 reloadButton.addEventListener("click", () => {
   // const boxes1 = document.getElementsByClassName("pathSecondary");
   // const boxes2 = document.getElementsByClassName("pathPrimary");
@@ -146,7 +159,7 @@ startButton.addEventListener("click", () => {
       alert("Please select an algorithm");
       break;
     case 1:
-      alert("Developer is too lazy to complete the algorithm");
+      depthFirstSearch();
       break;
     case 2:
       breadthFirstSearch();
