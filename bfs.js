@@ -1,5 +1,5 @@
 import { rows, cols } from "./index.js";
-const waitForSeconds = (secs) => {
+export const waitForSeconds = (secs) => {
   return new Promise((resolve) => {
     setTimeout(resolve, secs * 1000);
   });
