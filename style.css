@@ -169,3 +169,6 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .pathSecondary{
   background:rgb(94, 196, 94);
 }
+.dragging{
+  opacity: 0.5;
+}

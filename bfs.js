@@ -88,8 +88,9 @@ export const breadthFirstSearch = async () => {
   let [sRow, sCol] = current.split("|");
   let sBox = document.querySelector(`[row="${sRow}"][col="${sCol}"]`);
   path.push(sBox);
-  path.forEach((box, i) => {
+  path.forEach(async (box, i) => {
     box.classList.replace("pathSecondary", "pathPrimary");
-    if (i > 0 && i < path.length - 1) box.innerHTML = path.length - i - 1;
+    let pathLength = path.length;
+    if (i > 0 && i < pathLength - 1) box.innerHTML = pathLength - i - 1;
   });
 };

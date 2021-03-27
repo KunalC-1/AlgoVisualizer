@@ -93,65 +93,37 @@ const mainGrid = new Grid();
 mainGrid.createEmptyBoard();
 console.log(mainGrid.rows, mainGrid.cols);
 
-var dragged;
-const gridContainer = document.querySelector(".grid-container");
-/* events fired on the draggable target */
-// gridContainer.addEventListener("drag", function (event) {}, false);
-
-gridContainer.addEventListener("dragstart", function (event) {
-  // store a ref. on the dragged elem
-  dragged = event.target;
-  if (dragged.getAttribute("class") === "bi bi-nut-fill Icon") {
-    let startBox = document.getElementById("startBox");
-    if (startBox.hasAttribute("id")) startBox.removeAttribute("id");
-  } else if (dragged.getAttribute("class") === "bi bi-geo-alt-fill Icon") {
-    let endBox = document.getElementById("endBox");
-    if (endBox.hasAttribute("id")) endBox.removeAttribute("id");
-  }
-  // console.log(dragged);
-  // make it half transparent
-  event.target.style.opacity = 0.5;
+const Icons = document.querySelectorAll(".bi.Icon");
+const boxes = document.querySelectorAll(".box");
+Icons.forEach((Icon) => {
+  Icon.addEventListener("dragstart", (e) => {
+    Icon.classList.add("dragging");
+    let parentBox = e.target.parentElement;
+    parentBox.removeAttribute("id");
+  });
+  Icon.addEventListener("dragend", () => {
+    Icon.classList.remove("dragging");
+    // console.log("dragend", e.target);
+  });
 });
-
-gridContainer.addEventListener("dragend", function (event) {
-  // reset the transparency
-  event.target.style.opacity = "";
+boxes.forEach((box) => {
+  box.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    mainGrid.ismousePressed = false;
+  });
 });
-
-/* events fired on the drop targets */
-gridContainer.addEventListener("dragover", function (event) {
-  // prevent default to allow drop
-  event.preventDefault();
-});
-
-gridContainer.addEventListener("dragenter", function (event) {
-  // highlight potential drop target when the draggable element enters it
-  if (event.target.className == "box") {
-    event.target.style.background = "gray";
-  }
-});
-
-gridContainer.addEventListener("dragleave", function (event) {
-  // reset background of potential drop target when the draggable element leaves it
-  if (event.target.className == "box") {
-    event.target.style.background = "";
-  }
-});
-
-gridContainer.addEventListener("drop", function (event) {
-  // prevent default action (open as link for some elements)
-  event.preventDefault();
-  // move dragged elem to the selected drop target
-  if (event.target.className == "box") {
-    event.target.style.background = "";
-    dragged.parentNode.removeChild(dragged);
-    event.target.appendChild(dragged);
-    if (dragged.classList.contains("bi-nut-fill"))
-      event.target.setAttribute("id", "startBox");
-    else if (dragged.classList.contains("bi-geo-alt-fill"))
-      event.target.setAttribute("id", "endBox");
-  }
-  mainGrid.ismousePressed = false;
+boxes.forEach((box) => {
+  box.addEventListener("drop", (e) => {
+    // e.preventDefault();
+    // console.log(e.target);
+    const currentlyDragging = document.querySelector(".dragging");
+    box.appendChild(currentlyDragging);
+    if (currentlyDragging.classList.contains("bi-nut-fill"))
+      box.setAttribute("id", "startBox");
+    else if (currentlyDragging.classList.contains("bi-geo-alt-fill"))
+      box.setAttribute("id", "endBox");
+    mainGrid.ismousePressed = false;
+  });
 });
 
 const algoDropdown = document.querySelector(".algoDropdown");
