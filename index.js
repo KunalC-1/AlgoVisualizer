@@ -2,6 +2,7 @@
 import { breadthFirstSearch } from "./bfs.js";
 import { depthFirstSearch } from "./dfs.js";
 import { astar } from "./astar.js";
+import { dijkstra } from "./dijikstra.js";
 class Grid {
   createNode(row, col) {
     let node = document.createElement("div");
@@ -170,7 +171,7 @@ startButton.addEventListener("click", () => {
       breadthFirstSearch();
       break;
     case "Dikjstra":
-      alert("Developer is too lazy to complete the algorithm");
+      dijkstra();
       break;
     case "Astar":
       astar();
@@ -204,3 +205,8 @@ toggleSwitch.addEventListener("change", switchTheme);
 
 export const rows = mainGrid.rows;
 export const cols = mainGrid.cols;
+export const waitForSeconds = (secs) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, secs * 1000);
+  });
+};

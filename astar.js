@@ -1,5 +1,4 @@
-import { rows, cols } from "./index.js";
-import { waitForSeconds } from "./bfs.js";
+import { rows, cols, waitForSeconds } from "./index.js";
 // checks for validness of given row and col
 function check(row, col, visited) {
   if (col == -1 || row == -1) return false;

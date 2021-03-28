@@ -236,9 +236,6 @@ body{
 .intermediatePath {
   background: rgb(191, 4, 238);
 }
-.intermediatePath {
-  background: rgb(191, 4, 238);
-}
 .dragging {
   opacity: 0.5;
 }

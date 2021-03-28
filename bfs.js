@@ -1,9 +1,4 @@
-import { rows, cols } from "./index.js";
-export const waitForSeconds = (secs) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, secs * 1000);
-  });
-};
+import { rows, cols, waitForSeconds } from "./index.js";
 export const breadthFirstSearch = async () => {
   const queue = [];
   const parentForCell = {};
@@ -14,6 +9,7 @@ export const breadthFirstSearch = async () => {
   const endRow = endBox.getAttribute("row");
   const endCol = endBox.getAttribute("col");
   const targetKey = `${endRow}|${endCol}`;
+  let foundDestn = false;
   queue.push({
     row: parseInt(startRow),
     col: parseInt(startCol),
@@ -38,6 +34,7 @@ export const breadthFirstSearch = async () => {
       { row, col: col + 1 },
     ];
     if (currentKey === targetKey) {
+      foundDestn = true;
       break;
     }
     for (let i = 0; i < neighbours.length; i++) {
@@ -76,6 +73,10 @@ export const breadthFirstSearch = async () => {
     }
   }
   // console.dir(parentForCell);
+  if (!foundDestn) {
+    alert("No path found");
+    return;
+  }
   const path = [];
   let current = targetKey;
   while (current !== startKey) {
