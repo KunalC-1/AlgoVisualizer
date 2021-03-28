@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Algo Visualizer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="./style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="mainContent">
-        <div class="topSection text-center container-fluid">
-            <!-- <div id="Algorithm">
+      <div class="topSection text-center container-fluid">
+        <!-- <div id="Algorithm">
                 <select name="algorithmSelect" class="algoDropdown">
                     <option value="" selected disabled hidden>Choose Algorithm</option>
                     <option value="DFS">Depth First Search</option>
@@ -22,49 +28,52 @@
                     <option value="Dikjstra">Dikjstra Algorithm</option>
                 </select>
             </div> -->
-            <div id="Algorithm">
-                <!-- <label class="label">Algorithm : </label> -->
-                <div class="algoDropdown">
-                    <div class="default">
-                        <span>Choose Algorithm</span>
-                    </div>
-                    <input type="hidden" name="algo" id="algo" value="none" />
-                    <ul class="algoDropdown-menu">
-                        <li id="DFS">Depth First Search</li>
-                        <li id="BFS">Breadth First Search</li>
-                        <li id="Dikjstra">Dikjstra Algorithm</li>
-                    </ul>
-                </div>
+        <div id="Algorithm">
+          <!-- <label class="label">Algorithm : </label> -->
+          <div class="algoDropdown">
+            <div class="default">
+              <span>Choose Algorithm</span>
             </div>
-            <div class="ButtonContainer d-flex">
-                <button id="start" class="btn"><span>START</span></button>
-                <button id="reload" class="btn"><span>RELOAD</span></button>
-                <button id="reset" class="btn"><span>RESET</span></button>
-            </div>
+            <input type="hidden" name="algo" id="algo" value="none" />
+            <ul class="algoDropdown-menu">
+              <li id="DFS">Depth First Search</li>
+              <li id="BFS">Breadth First Search</li>
+              <li id="Dikjstra">Dikjstra Algorithm</li>
+              <li id="Astar">A* Algorithm</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ButtonContainer d-flex">
+          <button id="start" class="btn"><span>START</span></button>
+          <button id="reload" class="btn"><span>RELOAD</span></button>
+          <button id="reset" class="btn"><span>RESET</span></button>
+        </div>
 
-            <div id="Speed-Bar">
-                <h4 class="d-inline-block">Visualization Speed&nbsp;:</h4>
-                <input type="range" min="1" max="20" value="4" id="speed" />
-            </div>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
-                </label>
-            </div>
+        <div id="Speed-Bar">
+          <h4 class="d-inline-block">Visualization Speed&nbsp;:</h4>
+          <input type="range" min="1" max="20" value="4" id="speed" />
         </div>
-        <div class="container-fluid px-4 mainBox">
-            <div class="grid-container"></div>
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label>
         </div>
+      </div>
+      <div class="container-fluid px-4 mainBox">
+        <div class="grid-container"></div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
 
     <script type="module" src="./index.js"></script>
     <script type="module" src="./bfs.js"></script>
     <script type="module" src="./dfs.js"></script>
-</body>
-
+    <script type="module" src="./astar.js"></script>
+  </body>
 </html>
