@@ -1,6 +1,7 @@
 // gridContainer.add
 import { breadthFirstSearch } from "./bfs.js";
 import { depthFirstSearch } from "./dfs.js";
+import { astar } from "./astar.js";
 class Grid {
   createNode(row, col) {
     let node = document.createElement("div");
@@ -143,9 +144,9 @@ reloadButton.addEventListener("click", () => {
 });
 algoDropdown.addEventListener("click", function () {
   algoDropdown_menu.style.transition = "all 0.5s ease-in-out";
-  if (algoDropdown_menu.style.height == "140px")
+  if (algoDropdown_menu.style.height == "185px")
     algoDropdown_menu.style.height = "0px";
-  else algoDropdown_menu.style.height = "140px";
+  else algoDropdown_menu.style.height = "185px";
   algoDropdown.classList.toggle("active");
 });
 listItems.forEach((item) => {
@@ -170,6 +171,9 @@ startButton.addEventListener("click", () => {
       break;
     case "Dikjstra":
       alert("Developer is too lazy to complete the algorithm");
+      break;
+    case "Astar":
+      astar();
       break;
     default:
       break;
