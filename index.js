@@ -128,16 +128,19 @@ boxes.forEach((box) => {
 });
 
 const algoDropdown = document.querySelector(".algoDropdown");
+const algoDropdown_menu = algoDropdown.querySelector(".algoDropdown-menu");
+const listItems = algoDropdown_menu.querySelectorAll("li");
+
 const startButton = document.querySelector("#start");
 const reloadButton = document.querySelector("#reload");
 const resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", () => {
   const boxes1 = document.getElementsByClassName("pathSecondary");
   const boxes2 = document.getElementsByClassName("pathPrimary");
-  while(boxes1[0]){
+  while (boxes1[0]) {
     boxes1[0].classList.remove("pathSecondary");
   }
-  while(boxes2[0]){
+  while (boxes2[0]) {
     boxes2[0].innerHTML = "";
     boxes2[0].classList.remove("pathPrimary");
   }
@@ -153,18 +156,33 @@ reloadButton.addEventListener("click", () => {
   // }
   mainGrid.createEmptyBoard();
 });
+algoDropdown.addEventListener("click", function () {
+  algoDropdown_menu.style.transition = "all 0.5s ease-in-out";
+  if (algoDropdown_menu.style.height == "140px")
+    algoDropdown_menu.style.height = "0px";
+  else algoDropdown_menu.style.height = "140px";
+    algoDropdown.classList.toggle("active");
+});
+listItems.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    let input = document.getElementById("algo");
+    algoDropdown.querySelector("span").innerHTML = item.innerText;
+    input.value = item.getAttribute("id");
+  });
+});
 startButton.addEventListener("click", () => {
-  switch (algoDropdown.selectedIndex) {
-    case 0:
+  let input = document.getElementById("algo");
+  switch (input.value) {
+    case "none":
       alert("Please select an algorithm");
       break;
-    case 1:
+    case "DFS":
       depthFirstSearch();
       break;
-    case 2:
+    case "BFS":
       breadthFirstSearch();
       break;
-    case 3:
+    case "Dikjstra":
       alert("Developer is too lazy to complete the algorithm");
       break;
     default:
