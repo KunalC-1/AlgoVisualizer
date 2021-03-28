@@ -67,10 +67,6 @@ class Grid {
           let startIcon = document.createElement("i");
           startIcon.setAttribute("class", "bi bi-nut-fill Icon");
           startIcon.setAttribute("draggable", "true");
-          // startIcon.setAttribute(
-          //   "ondragstart",
-          //   "event.dataTransfer.setData('text/plain',null)"
-          // );
           temp.setAttribute("id", "startBox");
           temp.appendChild(startIcon);
         }
@@ -78,10 +74,6 @@ class Grid {
           let endIcon = document.createElement("i");
           endIcon.setAttribute("class", "bi bi-geo-alt-fill Icon");
           endIcon.setAttribute("draggable", "true");
-          // endIcon.setAttribute(
-          //   "ondragstart",
-          //   "event.dataTransfer.setData('text/plain',null)"
-          // );
           temp.setAttribute("id", "endBox");
           temp.appendChild(endIcon);
         }
@@ -129,7 +121,7 @@ boxes.forEach((box) => {
 
 const algoDropdown = document.querySelector(".algoDropdown");
 const algoDropdown_menu = algoDropdown.querySelector(".algoDropdown-menu");
-const listItems = algoDropdown_menu.querySelectorAll("li");
+const listItems = algoDropdown_menu.querySelectorAll(".algoDropdown-menu li");
 
 const startButton = document.querySelector("#start");
 const reloadButton = document.querySelector("#reload");
