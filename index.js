@@ -156,8 +156,9 @@ listItems.forEach((item) => {
   });
 });
 startButton.addEventListener("click", () => {
-  let input = document.getElementById("algo");
-  switch (input.value) {
+  let algoDropdown = document.getElementById("algo");
+  resetFunction();
+  switch (algoDropdown.value) {
     case "none":
       alert("Please select an algorithm");
       break;
@@ -171,7 +172,6 @@ startButton.addEventListener("click", () => {
       alert("Developer is too lazy to complete the algorithm");
       break;
     default:
-      console.log("there", algoDropdown.selectedIndex);
       break;
   }
 });
