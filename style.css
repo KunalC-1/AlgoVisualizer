@@ -100,67 +100,17 @@ body{
 
 .algoDropdown {
   font-size: 18px;
-  width: 280px;
   display: inline-block;
+  width:70%;
   background-color: #fff;
   border-radius: 12px;
+  padding:10px;
   box-shadow: 0 0 2px rgb(204, 204, 204);
-  transition: all 0.5s ease;
-  position: relative;
-  color: #474747;
-  height: 100%;
-  text-align: left;
-}
-.algoDropdown .default {
-  cursor: pointer;
-  padding: 10px;
-}
-.algoDropdown:hover {
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-}
-.algoDropdown:active {
-  background-color: #f8f8f8;
-}
-.algoDropdown.active:hover,
-.algoDropdown.active {
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 2px 2px 0 0;
-  background-color: #f8f8f8;
-}
-.algoDropdown .algoDropdown-menu {
-  position: absolute;
-  background-color: #fff;
-  width: 100%;
-  left: 0;
-  margin-top: 1px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 0px 0px 5px 5px;
-  overflow: hidden;
-  /* display: none; */
-  height: 0px;
-  overflow-x: hidden;
-  z-index: 9;
-  background-color: #9fe4e1;
-}
-.algoDropdown .algoDropdown-menu li {
-  padding: 10px;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-.algoDropdown .algoDropdown-menu {
-  padding: 0;
-  list-style: none;
-}
-.algoDropdown .algoDropdown-menu li:hover {
-  background-color: #55e7af;
-}
-.algoDropdown .algoDropdown-menu li:active {
-  background-color: #e2e2e2;
+ outline:none;
 }
 
 #speed {
   width: 200px;
-  /* height: 150px; */
   -webkit-appearance: none;
   background: var(--slider-color);
   outline: none;
@@ -180,10 +130,6 @@ body{
 }
 /* top section styling ends */
 
-/* :root{
-  --rows:20;
-  --cols:20;
-} */
 .grid-container {
   border-radius: 41px;
   place-content: center;
@@ -218,9 +164,6 @@ body{
   background-color: var(--wall-color) !important;
   box-shadow: none;
 }
-/* .box:hover{
-  box-shadow: 5px 5px 10px #00000027, -5px -5px 10px #ffffff;
-} */
 .Icon {
   width: 25px;
   font-size: 25px;

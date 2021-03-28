@@ -122,9 +122,6 @@ boxes.forEach((box) => {
 });
 
 const algoDropdown = document.querySelector(".algoDropdown");
-const algoDropdown_menu = algoDropdown.querySelector(".algoDropdown-menu");
-const listItems = algoDropdown_menu.querySelectorAll(".algoDropdown-menu li");
-
 const startButton = document.querySelector("#start");
 const reloadButton = document.querySelector("#reload");
 const resetButton = document.querySelector("#reset");
@@ -143,37 +140,23 @@ resetButton.addEventListener("click", resetFunction);
 reloadButton.addEventListener("click", () => {
   mainGrid.createEmptyBoard();
 });
-algoDropdown.addEventListener("click", function () {
-  algoDropdown_menu.style.transition = "all 0.5s ease-in-out";
-  if (algoDropdown_menu.style.height == "185px")
-    algoDropdown_menu.style.height = "0px";
-  else algoDropdown_menu.style.height = "185px";
-  algoDropdown.classList.toggle("active");
-});
-listItems.forEach((item) => {
-  item.addEventListener("click", (event) => {
-    let input = document.getElementById("algo");
-    algoDropdown.querySelector("span").innerHTML = item.innerText;
-    input.value = item.getAttribute("id");
-  });
-});
+
 startButton.addEventListener("click", () => {
-  let algoDropdown = document.getElementById("algo");
   resetFunction();
-  switch (algoDropdown.value) {
-    case "none":
-      alert("Please select an algorithm");
+  switch (algoDropdown.selectedIndex) {
+    case 0:
+      alert("Please select an Algorithm");
       break;
-    case "DFS":
+    case 1:
       depthFirstSearch();
       break;
-    case "BFS":
+    case 2:
       breadthFirstSearch();
       break;
-    case "Dikjstra":
+    case 3:
       dijkstra();
       break;
-    case "Astar":
+    case 4:
       astar();
       break;
     default:
