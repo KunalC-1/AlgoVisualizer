@@ -34,6 +34,9 @@ export const astar = async () => {
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       let key = `${i}|${j}`;
+      // f: total distance
+      // g: distance of node from start node
+      // h: heuristic(distance of final node from current node)
       cellDetails[key] = {
         f: Number.MAX_VALUE,
         g: Number.MAX_VALUE,
@@ -64,7 +67,7 @@ export const astar = async () => {
   while (openSet.length !== 0) {
     // console.log("hello");
     var lowest = 0;
-    for (var i = 0; i < openSet.length; i++) {
+    for (let i = 0; i < openSet.length; i++) {
       if (openSet[i].f < openSet[lowest].f) lowest = i;
     }
     const { row, col } = openSet[lowest];
@@ -95,7 +98,6 @@ export const astar = async () => {
         break;
       }
       let gnew = parseInt(cellDetails[mainkey].g) + 1;
-      //   if(cellDetails[key].g <= gnew) continue;
       let hnew = heuristic(nRow, nCol, endRow, endCol);
       let fnew = gnew + hnew;
       let node = {
@@ -103,14 +105,12 @@ export const astar = async () => {
         row: nRow,
         col: nCol,
       };
-      if (cellDetails[key].f == Number.MAX_VALUE || cellDetails[key].f > fnew) {
+      if (cellDetails[key].f == Number.MAX_VALUE || fnew < cellDetails[key].f) {
         openSet.push(node);
         cellDetails[key].f = fnew;
         cellDetails[key].g = gnew;
         cellDetails[key].h = hnew;
         cellDetails[key].parent = mainkey;
-        // else
-        // console.log("Already there");
       }
     }
     await waitForSeconds(0.2 / timeMultiplier);
