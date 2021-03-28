@@ -210,12 +210,26 @@ html {
   font-size: 25px;
   cursor: grab;
 }
-.pathPrimary {
-  background: rgb(219, 102, 235);
+.pathPrimary{
+  background-color: rgba(38, 213, 240, 0.945);
+  animation: pathAnimation 700ms ease-out 1 alternate forwards;
 }
 .pathSecondary {
   background: rgb(94, 196, 94);
 }
 .dragging {
   opacity: 0.5;
+}
+@keyframes pathAnimation {
+  0% {
+    transform: scale(.3);
+    border-radius: 100%;
+  }
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
 }

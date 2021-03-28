@@ -134,7 +134,7 @@ const listItems = algoDropdown_menu.querySelectorAll("li");
 const startButton = document.querySelector("#start");
 const reloadButton = document.querySelector("#reload");
 const resetButton = document.querySelector("#reset");
-resetButton.addEventListener("click", () => {
+function resetFunction() {
   const boxes1 = document.getElementsByClassName("pathSecondary");
   const boxes2 = document.getElementsByClassName("pathPrimary");
   while (boxes1[0]) {
@@ -144,16 +144,9 @@ resetButton.addEventListener("click", () => {
     boxes2[0].innerHTML = "";
     boxes2[0].classList.remove("pathPrimary");
   }
-});
+}
+resetButton.addEventListener("click", resetFunction);
 reloadButton.addEventListener("click", () => {
-  // const boxes1 = document.getElementsByClassName("pathSecondary");
-  // const boxes2 = document.getElementsByClassName("pathPrimary");
-  // for (let i = 0; i < boxes1.length; i++) {
-  //   boxes1[i].classList.remove("pathSecondary");
-  // }
-  // for (let i = 0; i < boxes2.length; i++) {
-  //   boxes2[i].classList.remove("pathPrimary");
-  // }
   mainGrid.createEmptyBoard();
 });
 algoDropdown.addEventListener("click", function () {
@@ -161,7 +154,7 @@ algoDropdown.addEventListener("click", function () {
   if (algoDropdown_menu.style.height == "140px")
     algoDropdown_menu.style.height = "0px";
   else algoDropdown_menu.style.height = "140px";
-    algoDropdown.classList.toggle("active");
+  algoDropdown.classList.toggle("active");
 });
 listItems.forEach((item) => {
   item.addEventListener("click", (event) => {

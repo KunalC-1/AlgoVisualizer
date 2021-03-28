@@ -48,8 +48,8 @@ export const depthFirstSearch = async () => {
     const neighbours = [
       { row: row, col: col - 1 },
       { row: row + 1, col: col },
-      { row: row, col: col + 1 },
       { row: row - 1, col: col },
+      { row: row, col: col + 1 },
     ];
     // On finding destination exit from loop
     if (currentKey === targetKey) {
