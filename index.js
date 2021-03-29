@@ -39,8 +39,6 @@ class Grid {
     });
     gridContainer.addEventListener("mouseover", (e) => {
       if (this.ismousePressed) {
-        // console.log(e.target);
-
         if (
           e.target.classList.contains("box") &&
           e.target.id !== "startBox" &&
@@ -82,44 +80,42 @@ class Grid {
         gridContainer.appendChild(temp);
       }
     }
+    const Icons = document.querySelectorAll(".bi.Icon");
+    const boxes = document.querySelectorAll(".box");
+    Icons.forEach((Icon) => {
+      Icon.addEventListener("dragstart", (e) => {
+        Icon.classList.add("dragging");
+        let parentBox = e.target.parentElement;
+        parentBox.removeAttribute("id");
+      });
+      Icon.addEventListener("dragend", () => {
+        Icon.classList.remove("dragging");
+        // console.log("dragend", e.target);
+      });
+    });
+    boxes.forEach((box) => {
+      box.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+    });
+    boxes.forEach((box) => {
+      box.addEventListener("drop", (e) => {
+        // e.preventDefault();
+        // console.log(e.target);
+        const currentlyDragging = document.querySelector(".dragging");
+        box.appendChild(currentlyDragging);
+        if (currentlyDragging.classList.contains("bi-nut-fill"))
+          box.setAttribute("id", "startBox");
+        else if (currentlyDragging.classList.contains("bi-geo-alt-fill"))
+          box.setAttribute("id", "endBox");
+        this.ismousePressed = false;
+      });
+    });
   }
 }
 const mainGrid = new Grid();
 mainGrid.createEmptyBoard();
 console.log(mainGrid.rows, mainGrid.cols);
-
-const Icons = document.querySelectorAll(".bi.Icon");
-const boxes = document.querySelectorAll(".box");
-Icons.forEach((Icon) => {
-  Icon.addEventListener("dragstart", (e) => {
-    Icon.classList.add("dragging");
-    let parentBox = e.target.parentElement;
-    parentBox.removeAttribute("id");
-  });
-  Icon.addEventListener("dragend", () => {
-    Icon.classList.remove("dragging");
-    // console.log("dragend", e.target);
-  });
-});
-boxes.forEach((box) => {
-  box.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    mainGrid.ismousePressed = false;
-  });
-});
-boxes.forEach((box) => {
-  box.addEventListener("drop", (e) => {
-    // e.preventDefault();
-    // console.log(e.target);
-    const currentlyDragging = document.querySelector(".dragging");
-    box.appendChild(currentlyDragging);
-    if (currentlyDragging.classList.contains("bi-nut-fill"))
-      box.setAttribute("id", "startBox");
-    else if (currentlyDragging.classList.contains("bi-geo-alt-fill"))
-      box.setAttribute("id", "endBox");
-    mainGrid.ismousePressed = false;
-  });
-});
 
 const algoDropdown = document.querySelector(".algoDropdown");
 const startButton = document.querySelector("#start");
@@ -138,7 +134,12 @@ function resetFunction() {
 }
 resetButton.addEventListener("click", resetFunction);
 reloadButton.addEventListener("click", () => {
-  mainGrid.createEmptyBoard();
+  resetFunction();
+  const walls = document.getElementsByClassName("isWall");
+  while (walls[0]) {
+    walls[0].setAttribute("wall", 0);
+    walls[0].classList.remove("isWall");
+  }
 });
 
 startButton.addEventListener("click", () => {
