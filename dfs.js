@@ -59,7 +59,7 @@ export const depthFirstSearch = async () => {
     let nBox = document.querySelector(`[row="${row}"][col="${col}"]`);
     // managing visualization speed
     await waitForSeconds(0.2 / timeMultiplier);
-    if (nBox && nBox !== startBox) nBox.classList += " intermediatePath";
+    if (nBox && nBox !== startBox) nBox.classList += " pathSecondary";
     for (let i = 0; i < neighbours.length; i++) {
       let nRow = neighbours[i].row;
       let nCol = neighbours[i].col;
@@ -74,9 +74,7 @@ export const depthFirstSearch = async () => {
       }
       stack.push(neighbours[i]);
     }
-    await waitForSeconds(0.2 / timeMultiplier);
-    if (nBox && nBox !== startBox)
-      nBox.classList.replace("intermediatePath", "pathSecondary");
+    
   }
   if (!(targetKey in parentForCell)) {
     alert("No path Found");
