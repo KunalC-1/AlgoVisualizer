@@ -6,6 +6,7 @@
   --wall-color: #254974;
   --pathPrimary-color: #5AD7F0;
   --pathSecondary-color: #5EC45E;
+  --menu-background:#F33;
 }
 
 [data-theme="dark"] {
@@ -15,6 +16,8 @@
   --wall-color: #e5df8f;
   --pathPrimary-color: #13c9e9;
   --pathSecondary-color: #5EC45E;
+  --menu-background:rgb(58, 32, 117);
+
 }
 
 body{
@@ -247,3 +250,112 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+
+.MenuIcon{
+  font-size:3rem;
+}
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	left:40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+	background-color:var(--menu-background);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	z-index:1000;
+	animation: bot-to-top 2s ease-out;
+  cursor:pointer;
+
+}
+.floatIconsContainer{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.floatIconsContainer i{
+  font-size: 2rem;
+}
+ul{
+	position:fixed;
+	left:10px;
+	bottom:80px;
+	z-index:100;
+}
+
+ul li{
+	list-style:none;
+	margin-bottom:10px;
+}
+
+ul li div{
+  background-color:var(--menu-background);
+
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	width:60px;
+	height:60px;
+	display:block;
+}
+
+ul:hover{
+	visibility:visible!important;
+	opacity:1!important;
+  cursor:pointer;
+}
+
+div#menu + ul{
+  visibility: hidden;
+}
+
+div#menu:hover + ul{
+  visibility: visible;
+  animation: scale-in 0.5s;
+}
+
+div#menu i{
+	animation: rotate-in 0.5s;
+
+}
+
+div#menu:hover > i{
+	animation: rotate-out 0.5s;
+
+}
+
+@keyframes bot-to-top {
+    0%   {bottom:-40px}
+    50%  {bottom:40px}
+}
+
+@keyframes scale-in {
+    from {transform: scale(0);opacity: 0;}
+    to {transform: scale(1);opacity: 1;}
+}
+
+@keyframes rotate-in {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes rotate-out {
+    from {transform: rotate(360deg);}
+    to {transform: rotate(0deg);}
+}
+@media only screen and (max-width: 720px){
+  .ButtonContainer{
+    display:none !important;
+  }
+}
+@media only screen and (min-width: 720px){
+  .floatingCTA{
+    display:none !important;
+  }
+}

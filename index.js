@@ -121,6 +121,9 @@ const algoDropdown = document.querySelector(".algoDropdown");
 const startButton = document.querySelector("#start");
 const reloadButton = document.querySelector("#reload");
 const resetButton = document.querySelector("#reset");
+const startButtonFloat = document.querySelector("#startFloat");
+const reloadButtonFloat = document.querySelector("#reloadFloat");
+const resetButtonFloat = document.querySelector("#resetFloat");
 function resetFunction() {
   const boxes1 = document.getElementsByClassName("pathSecondary");
   const boxes2 = document.getElementsByClassName("pathPrimary");
@@ -133,16 +136,18 @@ function resetFunction() {
   }
 }
 resetButton.addEventListener("click", resetFunction);
-reloadButton.addEventListener("click", () => {
+resetButtonFloat.addEventListener("click", resetFunction);
+function reloadFunction() {
   resetFunction();
   const walls = document.getElementsByClassName("isWall");
   while (walls[0]) {
     walls[0].setAttribute("wall", 0);
     walls[0].classList.remove("isWall");
   }
-});
-
-startButton.addEventListener("click", () => {
+}
+reloadButton.addEventListener("click", reloadFunction);
+reloadButtonFloat.addEventListener("click", reloadFunction);
+function startFunction() {
   resetFunction();
   switch (algoDropdown.selectedIndex) {
     case 0:
@@ -163,7 +168,9 @@ startButton.addEventListener("click", () => {
     default:
       break;
   }
-});
+}
+startButton.addEventListener("click", startFunction);
+startButtonFloat.addEventListener("click", startFunction);
 const toggleSwitch = document.querySelector(".theme-switch input");
 const currentTheme = localStorage.getItem("theme")
   ? localStorage.getItem("theme")
