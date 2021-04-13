@@ -54,7 +54,7 @@ class Grid {
       }
     });
     this.rows = Math.round(gridContainer.offsetHeight / 30) - 3;
-    this.cols = Math.round(gridContainer.offsetWidth / 30) - 5;
+    this.cols = Math.round(gridContainer.offsetWidth / 30) - 3;
     // console.log(rows, cols);
     // setting css variables
     gridContainer.style.setProperty("--rows", this.rows);
@@ -63,14 +63,14 @@ class Grid {
     for (let row = 0; row < this.rows; row++) {
       for (let col = 0; col < this.cols; col++) {
         let temp = this.createNode(row, col);
-        if (row === 10 && col == 10) {
+        if (row === 0 && col == 0) {
           let startIcon = document.createElement("i");
           startIcon.setAttribute("class", "bi bi-nut-fill Icon");
           startIcon.setAttribute("draggable", "true");
           temp.setAttribute("id", "startBox");
           temp.appendChild(startIcon);
         }
-        if (row === 10 && col == 30) {
+        if (row === this.rows - 1 && col == this.cols - 1) {
           let endIcon = document.createElement("i");
           endIcon.setAttribute("class", "bi bi-geo-alt-fill Icon");
           endIcon.setAttribute("draggable", "true");

@@ -101,7 +101,6 @@ body{
 .algoDropdown {
   font-size: 18px;
   display: inline-block;
-  width:70%;
   background-color: #fff;
   border-radius: 12px;
   padding:10px;
@@ -136,10 +135,9 @@ body{
   flex: 0.8;
   display: grid;
   cursor: crosshair;
-  height: 80vh;
+  height: 90vh;
   margin-left: auto;
   margin-right: auto;
-  /* column-count: var(--cols); */
   grid-template-rows: repeat(var(--rows), 30px);
   grid-template-columns: repeat(var(--cols), 30px);
   grid-row-gap: 2px;
@@ -148,13 +146,14 @@ body{
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom:2rem;
 }
 .box {
   background: transparent;
   text-align: center;
   display: flex;
-  width: 30px;
-  height: 30px;
+  width: 1.8rem;
+  height: 1.8rem;
   justify-content: center;
   align-items: center;
   box-shadow: inset -1px 0px 10px #d4d4d4, inset 0px -1px 10px #ffffff;
@@ -171,7 +170,7 @@ body{
 }
 .pathPrimary{
   background-color: var(--pathPrimary-color);
-  animation: pathAnimation 700ms ease-out 1 alternate forwards;
+  /* animation: pathAnimation 700ms ease-out 1 alternate forwards; */
 }
 .pathSecondary {
   background: var(--pathSecondary-color);
