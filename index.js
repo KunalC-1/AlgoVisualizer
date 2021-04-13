@@ -2,7 +2,7 @@
 import { breadthFirstSearch } from "./bfs.js";
 import { depthFirstSearch } from "./dfs.js";
 import { astar } from "./astar.js";
-import { dijkstra } from "./dijikstra.js";
+import { dijkstra } from "./dijkstra2.js";
 class Grid {
   createNode(row, col) {
     let node = document.createElement("div");
