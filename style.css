@@ -13,12 +13,13 @@
   --slider-color: #9A97F3;
   --font-color: #e1e1ff;
   --bg-color: #161625;
-  --wall-color: #e5df8f;
-  --pathPrimary-color: #13c9e9;
+  --wall-color: #254974;
+  --pathPrimary-color: #402de7;
   --pathSecondary-color: #5EC45E;
   --menu-background:rgb(58, 32, 117);
 
 }
+
 
 body{
   background-color: var(--bg-color);
