@@ -1,8 +1,9 @@
 // gridContainer.add
-import { breadthFirstSearch } from "./bfs.js";
-import { depthFirstSearch } from "./dfs.js";
-import { astar } from "./astar.js";
-import { dijkstra } from "./dijkstra2.js";
+// import { breadthFirstSearch } from "./bfs.js";
+// import { depthFirstSearch } from "./dfs.js";
+// import { astar } from "./astar.js";
+// import { dijkstra } from "./dijkstra2.js";
+import {dfsobj, bfsobj, dijkstraobj, astarobj} from "./algorithm.js"
 class Grid {
   createNode(row, col) {
     let node = document.createElement("div");
@@ -154,16 +155,16 @@ function startFunction() {
       alert("Please select an Algorithm");
       break;
     case 1:
-      depthFirstSearch();
+      dfsobj.depthFirstSearchAlgo();
       break;
     case 2:
-      breadthFirstSearch();
+      bfsobj.breadthFirstSearchAlgo();
       break;
     case 3:
-      dijkstra();
+      dijkstraobj.dijkstraAlgo();
       break;
     case 4:
-      astar();
+      astarobj.astarAlgo();
       break;
     default:
       break;
