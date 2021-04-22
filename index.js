@@ -1,9 +1,4 @@
-// gridContainer.add
-// import { breadthFirstSearch } from "./bfs.js";
-// import { depthFirstSearch } from "./dfs.js";
-// import { astar } from "./astar.js";
-// import { dijkstra } from "./dijkstra2.js";
-import {dfsobj, bfsobj, dijkstraobj, astarobj} from "./algorithm.js"
+import { dfsobj, bfsobj, dijkstraobj, astarobj } from "./algorithm.js";
 class Grid {
   createNode(row, col) {
     let node = document.createElement("div");
@@ -116,7 +111,6 @@ class Grid {
 }
 const mainGrid = new Grid();
 mainGrid.createEmptyBoard();
-console.log(mainGrid.rows, mainGrid.cols);
 
 const algoDropdown = document.querySelector(".algoDropdown");
 const startButton = document.querySelector("#start");
@@ -197,8 +191,3 @@ toggleSwitch.addEventListener("change", switchTheme);
 
 export const rows = mainGrid.rows;
 export const cols = mainGrid.cols;
-export const waitForSeconds = (secs) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, secs * 1000);
-  });
-};
