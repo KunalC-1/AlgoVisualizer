@@ -1,9 +1,16 @@
 # AlgoVisualizer
-1. Fork this Repo
-2. Clone your forked repo
-3. Make changes in the Code
-4. run command : git pull upstream master
-5. run command : git add .
-6. run command : git commit -m "meaningful commit message". 
-7. run command : git push origin master.
-8. generate a pull request.
+ ### A Path Finding Algorithm Visualizer written in Vanilla Javascript using OOP design pattern, which can help you visualize how certain Path Finding Algorithms work.
+---
+## See Live Demo [Here](https://pfalgovisualizer.netlify.app/) 
+
+Algorithms Visualized :-
+1. A* Algorithm
+2. Djikstra's Algorithm
+3. Breadth First Search
+4. Depth First Search
+
+## Features:-
+  * Visualize Different Algorithms
+  * Adjust the Speed of Visualization
+  * Switch between Light and Dark mode
+  * Responsive Web App
